@@ -27,20 +27,14 @@ Welcome to the **Boilerplate Project with JWT Authentication**! This project ser
 1. **Clone the repository:**
 
    ```sh
-   git clone https://github.com/yourusername/boilerplate-jwt-auth.git
-   cd boilerplate-jwt-auth
+   git clone https://github.com/Aasess/boiler-plate
    ```
 
-2. **Install dependencies:**
+
+2. **Navigate to the `jwtAuth` folder and install dependencies:**
 
    ```sh
-   npm install
-   ```
-
-3. **Navigate to the `jwtAuth` folder and install dependencies:**
-
-   ```sh
-   cd jwtAuth
+   cd JwtAuth
    npm install
    ```
 
@@ -52,23 +46,24 @@ Welcome to the **Boilerplate Project with JWT Authentication**! This project ser
 boilerplate-jwt-auth/
 ├── jwtAuth/
 │   ├── controllers/
-│   │   ├── authController.js
 │   │   └── userController.js
 │   ├── models/
-│   │   └── user.js
+│   │   └── User.js
 │   ├── routes/
-│   │   ├── authRoutes.js
 │   │   └── userRoutes.js
-│   ├── utils/
-│   │   ├── email.js
-│   │   └── jwt.js
+│   ├── config/
+│   │   ├── connectDb.js
+│   │   └── emailConfig.js
+│   ├── middlewares/
+│   │   ├── authMiddleware.js
+│   ├── routes/
+│   │   ├── userRoutes.js
 │   ├── .env
 │   ├── app.js
 │   └── server.js
 ├── .env
 ├── app.js
 ├── package.json
-└── README.md
 ```
 
 ## Usage
@@ -82,117 +77,30 @@ boilerplate-jwt-auth/
 2. **Run the `jwtAuth` server:**
 
    ```sh
-   cd jwtAuth
+   cd JwtAuth
    npm start
    ```
 
 3. **Access the application:**
 
-   Open your browser and navigate to `http://localhost:3000` (or your configured port).
+   Open your browser and navigate to `http://localhost:8000` (or your configured port).
 
-## API Endpoints
-
-### Authentication Endpoints
-
-- **Register a new user**
-
-  ```http
-  POST /auth/register
-  ```
-
-  - **Request Body:**
-
-    ```json
-    {
-      "name": "John Doe",
-      "email": "john.doe@example.com",
-      "password": "yourpassword"
-    }
-    ```
-
-- **Login a user**
-
-  ```http
-  POST /auth/login
-  ```
-
-  - **Request Body:**
-
-    ```json
-    {
-      "email": "john.doe@example.com",
-      "password": "yourpassword"
-    }
-    ```
-
-- **Change password**
-
-  ```http
-  POST /auth/change-password
-  ```
-
-  - **Request Body:**
-
-    ```json
-    {
-      "oldPassword": "oldpassword",
-      "newPassword": "newpassword"
-    }
-    ```
-
-- **Request password reset email**
-
-  ```http
-  POST /auth/request-reset-password
-  ```
-
-  - **Request Body:**
-
-    ```json
-    {
-      "email": "john.doe@example.com"
-    }
-    ```
-
-- **Reset password**
-
-  ```http
-  POST /auth/reset-password
-  ```
-
-  - **Request Body:**
-
-    ```json
-    {
-      "token": "resetToken",
-      "newPassword": "newpassword"
-    }
-    ```
 
 ## Environment Variables
 
 Create a `.env` file in both the root and `jwtAuth` directories with the following variables:
 
-### Root `.env`
-
-```
-PORT=3000
-JWT_SECRET=yourjwtsecret
-JWT_EXPIRES_IN=1h
-EMAIL_SERVICE=yourEmailService
-EMAIL_USERNAME=yourEmailUsername
-EMAIL_PASSWORD=yourEmailPassword
-```
 
 ### `jwtAuth` Directory `.env`
 
 ```
-PORT=3001
-JWT_SECRET=yourjwtsecret
-JWT_EXPIRES_IN=1h
-EMAIL_SERVICE=yourEmailService
-EMAIL_USERNAME=yourEmailUsername
-EMAIL_PASSWORD=yourEmailPassword
+PORT = 8000
+JWT_SECRET_KEY = YOUR_JWT_SECRET_KEY
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USER = 'youremail@gmail.com'
+EMAIL_PASS = 'yourpassword'
+EMAIL_FROM = 'youremail@gmail.com'
 ```
 
 ## Contributing
